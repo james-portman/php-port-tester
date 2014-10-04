@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# Optionally force to https
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]*)/?(.*)$ /index.php?host=$1&port=$2 [NC,L,QSA]
+
